@@ -124,5 +124,20 @@ class Interpreter:
             hauteur = hauteur_match.group(1) if hauteur_match else "10"
             largeur = largeur_match.group(1) if largeur_match else "40"
             return f'zone_texte(nom="{nom}", hauteur={hauteur}, largeur={largeur})'
+        # --- Ajout pour condition Blurp ---
+        if mots[0] == "si":
+            # si condition alors instruction sinon instruction
+            # Ex : si 1 < 2 alors dire("ok") sinon dire("non")
+            ligne = ligne.strip()
+            import re
+            m = re.match(r'si (.+) alors (.+?)( sinon (.+))?$', ligne)
+            if m:
+                condition = m.group(1)
+                instr_vrai = m.group(2)
+                instr_faux = m.group(4)
+                if instr_faux:
+                    return f'({instr_vrai}) if ({condition}) else ({instr_faux})'
+                else:
+                    return f'({instr_vrai}) if ({condition}) else None'
         # Par défaut, retourne la ligne telle quelle
         return ligne
