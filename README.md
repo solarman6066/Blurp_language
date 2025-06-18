@@ -32,6 +32,7 @@ Utilise le gestionnaire de paquets :
 ```
 python bpm.py install nom_de_la_lib
 ```
+Le bpm fonctionne juste pour des librairie python tres simple.
 
 ## Structure du projet
 - `main.py`, `repl.py`, `interpreter.py` : cœur de Blurp
