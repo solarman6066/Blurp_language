@@ -38,13 +38,15 @@ class Interpreter:
         else:
             code = self.traduire_blurp_en_python(ligne)
             try:
-                # Si c'est une expression, eval pour afficher le résultat
+                # On tente d'abord eval, mais si SyntaxError, on fait exec
                 resultat = eval(code, {}, self.env)
                 if resultat is not None:
                     print(resultat)
-            except SyntaxError:
-                # Si ce n'est pas une expression, exec (affectations, listes, etc.)
-                exec(code, {}, self.env)
+            except Exception:
+                try:
+                    exec(code, {}, self.env)
+                except Exception as e:
+                    print("[erreur]", e)
 
     def importer_lib(self, nom):
         nom_module = f"libs.{nom.lower()}"
