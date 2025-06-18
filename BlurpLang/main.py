@@ -19,15 +19,17 @@ def executer_bloc_conditionnel(interp, bloc):
     bloc_sinon = []
     dans_alors = True
     for ligne in bloc[1:]:
-        if ligne.strip() == "sinon":
-            dans_alors = False
+        l = ligne.strip()
+        if not l or l == "sinon" or l == "fin":
+            if l == "sinon":
+                dans_alors = False
+            if l == "fin":
+                break
             continue
-        if ligne.strip() == "fin":
-            break
         if dans_alors:
-            bloc_alors.append(ligne)
+            bloc_alors.append(l)
         else:
-            bloc_sinon.append(ligne)
+            bloc_sinon.append(l)
     try:
         if eval(condition, {}, interp.env):
             for l in bloc_alors:
