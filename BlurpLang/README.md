@@ -64,6 +64,7 @@ Utilise le Blurp Package Manager (bpm) :
 python bpm.py install nom_de_la_lib
 utiliser nom_de_la_lib_blurp
 ```
+Le bpm ne fontionne que pour des lib python tres simple.
 
 ## Pour aller plus loin
 - Consulte les fichiers du dossier `libs/` pour voir les fonctions disponibles.
