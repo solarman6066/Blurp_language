@@ -1,0 +1,18 @@
+utiliser math_blurp
+utiliser aleatoire_blurp
+utiliser fonctionnel_blurp
+
+dire("Racine de 49 :")
+dire(racine(49))
+
+dire("Un nombre aléatoire entre 10 et 20 :")
+dire(entier_entre(10, 20))
+
+dire("Doubler chaque nombre de 1 à 5 :")
+dire(map(doubler, [1,2,3,4,5]))
+
+dire("Garde les pairs :")
+dire(filter(pair, [1,2,3,4,5,6]))
+
+dire("Somme de 1 à 5 :")
+dire(reduce(somme, [1,2,3,4,5]))
