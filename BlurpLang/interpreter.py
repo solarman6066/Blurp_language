@@ -125,7 +125,7 @@ class Interpreter:
             hauteur = hauteur_match.group(1) if hauteur_match else "10"
             largeur = largeur_match.group(1) if largeur_match else "40"
             return f'zone_texte(nom="{nom}", hauteur={hauteur}, largeur={largeur})'
-        # --- Ajout pour condition Blurp ---
+      
         if mots[0] == "si":
             # si condition alors instruction sinon instruction
             # Ex : si 1 < 2 alors dire("ok") sinon dire("non")
