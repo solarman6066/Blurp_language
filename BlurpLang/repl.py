@@ -1,7 +1,7 @@
 from interpreter import Interpreter
 
 def lancer_repl():
-    print("🌀 Blurp v0.1")
+    print("Blurp v0.1")
     interp = Interpreter()
     while True:
         try:
